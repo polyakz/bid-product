@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 module.exports = mongoose.model("Bid", {
-    _id: String,
     created_at: Date,
     updated_at: Date,
     product: String,

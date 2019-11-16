@@ -18,7 +18,7 @@ app.get("/api/bids", function (req, res) {
     })
 });
 
-// app.post("/api/bids", function (req, res) {
-//     var bid = new BidModel(req.params);
-//     bid.save();
-// });
+app.post("/api/bids", function (req, res) {
+    var bid = new BidModel(req.params);
+    bid.save();
+});
