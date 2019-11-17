@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-module.exports = mongoose.model("Bid", {
+const schema = mongoose.Schema({
     created_at: Date,
     updated_at: Date,
     product: String,
@@ -13,5 +13,12 @@ module.exports = mongoose.model("Bid", {
         default: 'inactive'
     },
 });
+schema.pre("save", true, function (next) {
+    if (this.isNew) {
+        this.created_at = new Date();
+    }
 
-
+    this.updated_at = new Date();
+    next();
+});
+module.exports = mongoose.model("Bid", schema);
